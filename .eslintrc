@@ -2,11 +2,7 @@
   "extends": ["taro"],
   "rules": {
     "no-unused-vars": ["error", { "varsIgnorePattern": "Taro" }],
-    "no-console": ["warn", {"allow": ["warn", "error"]}],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
-    "no-extra-semi": "error",
-    "no-multi-spaces": "error"
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }]
   },
-  "parser": "'typescript-eslint-parser",
-  "plugins": ["typescript"]
+  "parser": "babel-eslint"
 }
