@@ -1,5 +1,5 @@
 import Taro, { Component, } from '@tarojs/taro'
-import { View, Text, Button, Label, Checkbox  } from '@tarojs/components'
+import { View, Text, Button, Label, Checkbox } from '@tarojs/components'
 
 export default class Clock extends Component {
 
@@ -7,7 +7,7 @@ export default class Clock extends Component {
         super(props)
         console.log('props', props)
 
-        //this.state = { date: new Date() }
+        // this.state = { date: new Date() }
     }
 
     state = {
@@ -32,24 +32,24 @@ export default class Clock extends Component {
     timerID;
 
     componentDidMount() {
-        this.timerID = setInterval(()=>this.calcTime(), 1000)
+        this.timerID = setInterval(() => this.calcTime(), 1000)
     }
 
     componentWillUnmount () {
         clearInterval(this.timerID)
     }
 
-    calcTime = ()=>{
+    calcTime = () => {
         this.setState({
             date: new Date()
         })
     }
 
-    calcStatus = ()=>{
-        //if(this.state.da)
+    calcStatus = () => {
+        // if(this.state.da)
     }
 
-    postRequest = ()=>{
+    postRequest = () => {
         Taro.request({
             url: '/api/form/data',
             data: {
@@ -60,13 +60,13 @@ export default class Clock extends Component {
               'content-type': 'application/json'
             }
         })
-        .then(res=>{
+        .then(res => {
            console.log('成功', res) 
         })
     }
 
     render () {
-        //let showStatus = this.calcStatus();
+        // let showStatus = this.calcStatus();
       return (
         <View className='clock'>
           <View>Hello, world!</View>
@@ -75,7 +75,9 @@ export default class Clock extends Component {
             {this.state.lists.map((item, i) => {
                 return (
                     <Label className='checkbox-list__label' for={i} key={i}>
-                        <Checkbox className='checkbox-list__checkbox' value={item.value} checked={item.checked}>{item.text}</Checkbox>
+                        <Checkbox className='checkbox-list__checkbox' value={item.value} checked={item.checked}>
+                            {item.text}
+                        </Checkbox>
                     </Label>
                 )
             })}

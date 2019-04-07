@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text,  } from '@tarojs/components'
-import { AtInput, AtForm, AtButton, AtRadio, AtIcon   } from 'taro-ui'
+import { View, Text, } from '@tarojs/components'
+import { AtInput, AtForm, AtButton, AtRadio, AtIcon } from 'taro-ui'
 import { observer, inject } from '@tarojs/mobx'
 
 interface IProps {
@@ -21,19 +21,19 @@ export default class TaroUIDemo extends Component<IProps> {
 
   }
 
-  onSubmit = ()=>{
-
+  onSubmit = () => {
+    console.log('----')
   }
 
-  onReset = ()=>{
-
+  onReset = () => {
+    console.log('----')
   }
 
-  handleChange = ()=>{
-
+  handleChange = () => {
+    console.log('----')
   }
 
-  handleRadioChange = (value)=>{
+  handleRadioChange = (value) => {
     const { taroUIStore } = this.props;
     taroUIStore.handleRadioChange(value)
   }
@@ -42,7 +42,7 @@ export default class TaroUIDemo extends Component<IProps> {
     const { taroUIStore: { radioValue } } = this.props
 
     return (
-        <View className="taro-ui-demo">
+        <View className='taro-ui-demo'>
             <Text>taro ui组件库展示</Text>
             <View className='form-control'>
                 <Text>表单控件</Text>

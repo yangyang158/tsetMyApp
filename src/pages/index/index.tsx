@@ -2,7 +2,7 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text, Button, Form, Switch, Input, Slider, Textarea, Label, Radio, Progress } from '@tarojs/components'
 import './index.scss'
 import {Clock} from '../../index'
-//在 index.js 引入插件，获取全局唯一的语音识别管理器 recordRecoManager
+// 在 index.js 引入插件，获取全局唯一的语音识别管理器 recordRecoManager
 var plugin = requirePlugin('WechatSI')
 let manager = plugin.getRecordRecognitionManager();
 
@@ -32,7 +32,7 @@ export default class Index extends Component {
   }
 
   componentWillUnmount () {
-    //识别结束事件
+    // 识别结束事件
     manager.onStop = res => {
       console.log("onStop result", res.result)
       this.setState({
@@ -41,26 +41,22 @@ export default class Index extends Component {
     }
   }
 
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  goMap =()=>{
+  goMap =() => {
       Taro.navigateTo({
         url: '/pages/map/index'
       })
   }
 
-  //开始语音识别
-  startVoiceRecognition = ()=>{
+  // 开始语音识别
+  startVoiceRecognition = () => {
     console.log('开始录音')
     manager.start();
   }
 
-  //开始语音识别
-  initVoiceRecognitionFunc = ()=>{
+  // 开始语音识别
+  initVoiceRecognitionFunc = () => {
     console.log('调用识别方法')
-    //有新的识别内容返回，则会调用此事件
+    // 有新的识别内容返回，则会调用此事件
     manager.onRecognize = (res) => {
       console.log('this', this)
       console.log("onRecognize current result", res.result);
@@ -68,18 +64,18 @@ export default class Index extends Component {
         currentText: res.result
       })
     }
-    //识别结束事件
+    // 识别结束事件
     manager.onStop = res => {
       console.log("onStop result", res.result)
       this.setState({
         currentText: res.result
       })
     }
-    //正常开始录音识别时会调用此事件
+    // 正常开始录音识别时会调用此事件
     manager.onStart = res => {
         console.log("成功开始录音识别", res)
     }
-    //识别错误事件
+    // 识别错误事件
     manager.onError = res => {
         console.error("error msg", res.msg)
     }
@@ -109,7 +105,7 @@ export default class Index extends Component {
               <Radio name='country' value='USA'>USA</Radio>
             </Label>
             <Label className='example-body__label' for='2' key='2'>
-              <Radio name='country'  value='China'>China</Radio>
+              <Radio name='country' value='China'>China</Radio>
             </Label>
           </View>
           <View>

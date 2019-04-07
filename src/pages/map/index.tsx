@@ -1,5 +1,5 @@
 import Taro, { Component, } from '@tarojs/taro'
-import { View, Map, Button  } from '@tarojs/components'
+import { View, Map, Button } from '@tarojs/components'
 import './index.scss'
 
 
@@ -7,9 +7,9 @@ export default class ShowMap extends Component {
 
     constructor (props) {
         super(props)
-        console.log('props', props)
+        console.log('props', props);
 
-        //this.state = { date: new Date() }
+        // this.state = { date: new Date() }
     }
 
     state = {
@@ -45,23 +45,20 @@ export default class ShowMap extends Component {
         }],
     }
 
-
-    componentDidMount() {
-    }
-
     componentWillMount(){
         Taro.getLocation({
             type: 'gcj02',
-            success: res=>{
+            success: res => {
               console.log('坐标位置', res)
               this.setState({
                 longitude: res.longitude,
                 latitude: res.latitude
               });
+              let params = `${res.latitude},${res.longitude}&key=BUCBZ-FSTES-HU7OF-6YSDD-AHZRE-6WF6U`;
               Taro.request({
-                  url: `https://apis.map.qq.com/ws/geocoder/v1/?location=${res.latitude},${res.longitude}&key=BUCBZ-FSTES-HU7OF-6YSDD-AHZRE-6WF6U`,
+                  url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + params,
                 })
-                .then(resp=>{
+                .then(resp => {
                   this.setState({
                     location: resp.data.result.address
                   })
@@ -70,22 +67,20 @@ export default class ShowMap extends Component {
           })
     }
 
-    componentWillUnmount () {
-    }
 
-    onTap = ()=>{
+    onTap = () => {
         console.log('----')
     }
 
-    markertap = (e)=>{
+    markertap = (e) => {
         console.log(111, e.markerId)
     }
 
-    callouttap = (e)=>{
+    callouttap = (e) => {
         console.log(222, e.markerId)
     }
 
-    navigation = ()=>{
+    navigation = () => {
         Taro.getLocation({
             type: 'gcj02', // 返回可以用于wx.openLocation的经纬度
             success(res) {
