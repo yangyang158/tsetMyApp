@@ -42,7 +42,7 @@ export default class TaroUIDemo extends Component<IProps> {
     const { taroUIStore: { radioValue } } = this.props
 
     return (
-        <View className='taro-ui-demo'>
+        <View className="taro-ui-demo">
             <Text>taro ui组件库展示</Text>
             <View className='form-control'>
                 <Text>表单控件</Text>
