@@ -1,7 +1,7 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text, Button, Form, Switch, Input, Slider, Textarea, Label, Radio, Progress } from '@tarojs/components'
 import './index.scss'
-import Clock from '../../components/clock/index'
+import {Clock} from '../../index'
 //在 index.js 引入插件，获取全局唯一的语音识别管理器 recordRecoManager
 var plugin = requirePlugin('WechatSI')
 let manager = plugin.getRecordRecognitionManager();
@@ -93,23 +93,23 @@ export default class Index extends Component {
         <Form>
           <View className='input-control'>
             <Input name='name' type='text' placeholder='请输入姓名' />
-            <Input type='password' password placeholder='这是一个密码输入框'/>
+            <Input type='password' password placeholder='这是一个密码输入框' />
           </View>
           <View className='switch-control'>
             <Switch name='switch' className='form-switch'></Switch>
           </View>
           <View>
-            <Slider step='1' value='100' showValue min='50' max='200'/>
+            <Slider step='1' value='100' showValue min='50' max='200' />
           </View>
           <View>
-            <Textarea style='background:pink;width:100%;height:80px;padding:0 30rpx;' autoHeight/>
+            <Textarea style='background:pink;width:100%;height:80px;padding:0 30rpx;' autoHeight />
           </View>
           <View>
             <Label className='example-body__label' for='1' key='1'>
-              <Radio name="country" value='USA'>USA</Radio>
+              <Radio name='country' value='USA'>USA</Radio>
             </Label>
             <Label className='example-body__label' for='2' key='2'>
-              <Radio name="country"  value='China'>China</Radio>
+              <Radio name='country'  value='China'>China</Radio>
             </Label>
           </View>
           <View>
@@ -117,7 +117,7 @@ export default class Index extends Component {
           </View>
         </Form>
         <View>
-            <Button type="primary" size="mini" onClick={this.startVoiceRecognition}>语音识别</Button>
+            <Button type='primary' size='mini' onClick={this.startVoiceRecognition}>语音识别</Button>
         </View>
         <view>获取语音识别内容：{this.state.currentText}</view>
       </View>

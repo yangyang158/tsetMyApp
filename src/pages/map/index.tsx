@@ -50,13 +50,9 @@ export default class ShowMap extends Component {
     }
 
     componentWillMount(){
-        wx.getLocation({
+        Taro.getLocation({
             type: 'gcj02',
             success: res=>{
-              const latitude = res.latitude
-              const longitude = res.longitude
-              const speed = res.speed
-              const accuracy = res.accuracy
               console.log('坐标位置', res)
               this.setState({
                 longitude: res.longitude,
@@ -65,10 +61,9 @@ export default class ShowMap extends Component {
               Taro.request({
                   url: `https://apis.map.qq.com/ws/geocoder/v1/?location=${res.latitude},${res.longitude}&key=BUCBZ-FSTES-HU7OF-6YSDD-AHZRE-6WF6U`,
                 })
-                .then(res=>{
-                  console.log('成功', res, res.data.result.address) 
+                .then(resp=>{
                   this.setState({
-                    location: res.data.result.address
+                    location: resp.data.result.address
                   })
                 })
               }
@@ -91,12 +86,12 @@ export default class ShowMap extends Component {
     }
 
     navigation = ()=>{
-        wx.getLocation({
+        Taro.getLocation({
             type: 'gcj02', // 返回可以用于wx.openLocation的经纬度
             success(res) {
               const latitude = res.latitude
               const longitude = res.longitude
-              wx.openLocation({
+              Taro.openLocation({
                 latitude,
                 longitude,
                 scale: 18
@@ -107,20 +102,20 @@ export default class ShowMap extends Component {
 
     render () {
       return (
-        <View className="map">
+        <View className='map'>
           <View>地图</View>
           <Map 
             scale={14}
             markers={this.state.markers}
             polyline={this.state.polyline}
-            show-compass={true} 
-            show-location={true} 
+            show-compass 
+            show-location 
             longitude={this.state.longitude} 
             latitude={this.state.latitude} 
             onClick={this.onTap}
             bindmarkertap={this.markertap}
             bindcallouttap={this.callouttap}
-        />
+          ></Map>
         <View>我的位置 经度：{this.state.longitude}, 纬度：{this.state.latitude}, {this.state.location}</View>
         <Button onClick={this.navigation}>导航</Button>
         </View>

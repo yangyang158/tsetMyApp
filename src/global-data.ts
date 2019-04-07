@@ -1,2 +1,2 @@
-let jsfdg = 'yy';
-export {jsfdg};
+const jsfdg = 'yy';
+export {jsfdg as default};

@@ -1,12 +1,9 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import Index from './pages/index'
 import { Provider } from '@tarojs/mobx'
-import taroUIStore from './store/taro-ui-store'
-
-
 // 引入taro-ui组件样式
-import 'taro-ui/dist/style/index.scss' 
-
+import 'taro-ui/dist/style/index.scss'
+import Index from './pages/index'
+import taroUIStore from './store/taro-ui-store' 
 import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools

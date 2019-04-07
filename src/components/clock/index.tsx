@@ -61,14 +61,14 @@ export default class Clock extends Component {
             }
         })
         .then(res=>{
-           console.log('成功') 
+           console.log('成功', res) 
         })
     }
 
     render () {
         //let showStatus = this.calcStatus();
       return (
-        <View className="clock">
+        <View className='clock'>
           <View>Hello, world!</View>
           <Text>现在的时间是 {this.state.date.toLocaleTimeString()}.</Text>
           <View>
@@ -79,7 +79,7 @@ export default class Clock extends Component {
                     </Label>
                 )
             })}
-            <Button type="primary" onClick={this.postRequest}>提交</Button>
+            <Button type='primary' onClick={this.postRequest}>提交</Button>
           </View>
         </View>
       )

@@ -66,8 +66,8 @@ export default class TaroUIDemo extends Component<IProps> {
                       { label: '单选项三禁用', value: 'option3', desc: '单选项描述', disabled: true }
                     ]}
                     value={radioValue}
-                    onClick={this.handleRadioChange} 
-                    />
+                    onClick={this.handleRadioChange}
+                  ></AtRadio>
                   <AtButton formType='submit'>提交</AtButton>
                   <AtButton formType='reset'>重置</AtButton>
               </AtForm>
