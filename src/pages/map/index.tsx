@@ -2,14 +2,10 @@ import Taro, { Component, } from '@tarojs/taro'
 import { View, Map, Button } from '@tarojs/components'
 import './index.scss'
 
-
 export default class ShowMap extends Component {
 
     constructor (props) {
         super(props)
-        console.log('props', props);
-
-        // this.state = { date: new Date() }
     }
 
     state = {
@@ -66,7 +62,6 @@ export default class ShowMap extends Component {
               }
           })
     }
-
 
     onTap = () => {
         console.log('----')

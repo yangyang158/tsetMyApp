@@ -12,7 +12,6 @@ import './app.scss'
 //   require('nerv-devtools')
 // }
 
-
 const store = {
   taroUIStore
 }

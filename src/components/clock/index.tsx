@@ -1,13 +1,17 @@
 import Taro, { Component, } from '@tarojs/taro'
 import { View, Text, Button, Label, Checkbox } from '@tarojs/components'
 
-export default class Clock extends Component {
+interface IProps {
+    text: string,
+}
+export default class Clock extends Component<IProps> {
 
     constructor (props) {
         super(props)
-        console.log('props', props)
+    }
 
-        // this.state = { date: new Date() }
+    static defaultProps = {
+        text: 'hello word'
     }
 
     state = {
@@ -66,10 +70,10 @@ export default class Clock extends Component {
     }
 
     render () {
-        // let showStatus = this.calcStatus();
+        let {text, } = this.props;
       return (
         <View className='clock'>
-          <View>Hello, world!</View>
+          <View>{text}</View>
           <Text>现在的时间是 {this.state.date.toLocaleTimeString()}.</Text>
           <View>
             {this.state.lists.map((item, i) => {

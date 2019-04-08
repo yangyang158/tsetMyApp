@@ -16,9 +16,18 @@
     "no-empty-function": "error",
     "no-multi-spaces": "error",
     "max-len": ["error", { "code": 120 }],
-    "no-multiple-empty-lines": "error",
+    "no-multiple-empty-lines": ["error", { "max": 1}],
     "arrow-spacing": "error",
-    "spaced-comment": ["error", "always"]
+    "spaced-comment": ["error", "always"],
+    "block-spacing": "error",
+    "keyword-spacing": "error",
+    "semi-spacing": ["error", {"before": false, "after": true}],
+    "no-undef-init": "error",
+    "no-multi-str": "error",
+    "key-spacing": ["error", { "beforeColon": false, "afterColon": true  }],
+    "no-regex-spaces": "error",
+    "no-eval": "error",
+    "camelcase": "error"
   },
   "parser": "babel-eslint",
   "globals": {
