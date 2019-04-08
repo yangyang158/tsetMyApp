@@ -16,7 +16,7 @@ export default class Index extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-  navigationBarTitleText: '主页',
+    navigationBarTitleText: '主页',
   }
 
   state= {
@@ -42,9 +42,9 @@ export default class Index extends Component {
   }
 
   goMap =() => {
-      Taro.navigateTo({
-        url: '/pages/map/index'
-      })
+    Taro.navigateTo({
+      url: '/pages/map/index'
+    })
   }
 
   // 开始语音识别
@@ -73,11 +73,11 @@ export default class Index extends Component {
     }
     // 正常开始录音识别时会调用此事件
     manager.onStart = res => {
-        console.log("成功开始录音识别", res)
+      console.log("成功开始录音识别", res)
     }
     // 识别错误事件
     manager.onError = res => {
-        console.error("error msg", res.msg)
+      console.error("error msg", res.msg)
     }
   }
 
@@ -113,7 +113,7 @@ export default class Index extends Component {
           </View>
         </Form>
         <View>
-            <Button type='primary' size='mini' onClick={this.startVoiceRecognition}>语音识别</Button>
+          <Button type='primary' size='mini' onClick={this.startVoiceRecognition}>语音识别</Button>
         </View>
         <view>获取语音识别内容：{this.state.currentText}</view>
       </View>
